@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="3n">
+<head>
+	<meta charset="utf-8">
+	<title>Hangman - the United States</title>
+	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+	<!--Bootstrap CSS-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="row text-center">
+			<h1>Hangman</h1>
+			<h2>United States and Territories</h2>
+		</div>
+		<!--US Map-->
+		<div class="row">
+			<div class="col-lg-2"></div>
+			<img src="assets/images/placeholder970x500.png" class="col-lg-8 img-responsive">
+			<div class="col-lg-2"></div>
+		</div>
+		<!--Current Word-->
+		<div class="row">
+			<h3 class="text-center">Current Word:</h3>
+		</div>
+		<div class="row">
+			<div class="col-lg-12 text-center"></div>
+		</div>
+		<!--Stats-->
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8">
+					<h3 class="col-lg-8 text-center">Letters Already Guessed</h3>
+					<div class="col-lg-8 text-center">_ _ _ _ _ _ _ _ _ _ _ _</div>
+				</div>
+				<div class="col-lg-4">
+					<div class="row">
+						<h3>Wins: <span>0</span></h3>
+					</div>
+					<div class="row">
+						<h3>Number of Guesses Remaining: <span>20</span></h3>
+					</div>
+				</div>
+			</div>			
+		</div>
+	</div>
+
+	<!--Bootstrap JS link-->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<!--JS File-->
+	<script type="text/javascript" src="assets/javascript/game.js"></script>
+</body>
+</html>
