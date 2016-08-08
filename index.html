@@ -12,17 +12,21 @@
 	<div class="container-fluid">
 		<div class="row text-center">
 			<h1>Hangman</h1>
-			<h2>United States and Territories</h2>
+			<h2>United States, Capital, and Territories</h2>
+			<h3><a href="#" target="_blank" id="previousWordInfoEl"></a></h3>
+			<h3 id="statusMsgEl">Let's play!</h3>
 		</div>
+
 		<!--US Map-->
 		<div class="row">
-			<div class="col-lg-2"></div>
-			<img src="assets/images/placeholder970x500.png" class="col-lg-8 img-responsive">
-			<div class="col-lg-2"></div>
+			<div class="col-lg-3"></div>
+			<img src="assets/images/placeholder970x500.png" class="col-lg-6 img-responsive">
+			<div class="col-lg-3"></div>
 		</div>
 		<!--Current Word-->
 		<div class="row">
 			<h3 class="text-center">Current Word:</h3>
+			<h3 class="text-center" id="wordDisplayEl">_ _ _ _ _ _ _ _ _ _ _</h3>
 		</div>
 		<div class="row">
 			<div class="col-lg-12 text-center"></div>
@@ -31,15 +35,15 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-8">
-					<h3 class="col-lg-8 text-center">Letters Already Guessed</h3>
-					<div class="col-lg-8 text-center">_ _ _ _ _ _ _ _ _ _ _ _</div>
+					<h4 class="col-lg-8 text-center">Letters Already Guessed</h4>
+					<h4 class="col-lg-8 text-center" id="lettersGuessedDisplayEl">_ _ _ _ _ _ _ _ _ _ _ _</h4>
 				</div>
 				<div class="col-lg-4">
 					<div class="row">
-						<h3>Wins: <span>0</span></h3>
+						<h4>Wins: <span id="winsEl">0</span></h4>
 					</div>
 					<div class="row">
-						<h3>Number of Guesses Remaining: <span>20</span></h3>
+						<h4>Number of Guesses Remaining: <span id="guessesEl">20</span></h4>
 					</div>
 				</div>
 			</div>			
