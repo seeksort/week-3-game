@@ -10,17 +10,23 @@
 </head>
 <body>
 	<div class="container-fluid">
+		<div class="row">
+			<div class="col-lg-3"></div>
+			<div class="col-lg-3">
+				<h1 class="text-left">Hangman</h1>
+			</div>
+			<div class="col-lg-3">
+				<h2 class="text-right">United States, Capital, and Territories</h2>
+			</div>
+		</div>
 		<div class="row text-center">
-			<h1>Hangman</h1>
-			<h2>United States, Capital, and Territories</h2>
 			<h3><a href="#" target="_blank" id="previousWordInfoEl"></a></h3>
 			<h3 id="statusMsgEl">Let's play!</h3>
-		</div>
-
+		</div>	
 		<!--US Map-->
 		<div class="row">
 			<div class="col-lg-3"></div>
-			<img src="assets/images/placeholder970x500.png" class="col-lg-6 img-responsive">
+			<img src="assets/images/placeholder970x500.png" class="col-lg-6 img-responsive" id="mapEl">
 			<div class="col-lg-3"></div>
 		</div>
 		<!--Current Word-->

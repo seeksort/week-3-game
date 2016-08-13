@@ -1,12 +1,14 @@
 var states = ["Alabama", "Alaska",  "Arizona",  "Arkansas",  "California",  "Colorado",  "Connecticut",  "Delaware",  "Florida",  "Georgia",  "Hawaii",  "Idaho",  "Illinois",  "Indiana",  "Iowa",  "Kansas",  "Kentucky",  "Louisiana",  "Maine",  "Maryland",  "Massachusetts",  "Michigan",  "Minnesota",  "Mississippi",  "Missouri",  "Montana",  "Nebraska",  "Nevada",  "New Hampshire",  "New Jersey",  "New Mexico",  "New York",  "North Carolina",  "North Dakota",  "Ohio",  "Oklahoma",  "Oregon",  "Pennsylvania",  "Rhode Island",  "South Carolina",  "South Dakota",  "Tennessee",  "Texas",  "Utah",  "Vermont",  "Virginia",  "Washington",  "West Virginia",  "Wisconsin",  "Wyoming", "Washington DC", "Puerto Rico", "Guam", "Northern Marianas", "US Virgin Islands", "American Samoa"]
-        
-var pacific = ["Alaska", "Hawaii"];
-var west = ["Arizona", "California", "Colorado", "Idaho",  "Montana", "Nevada", "New Mexico", "Oregon", "Utah", "Washington", "West Virginia", "Wyoming"];
-var midwest = ["Illinois",  "Indiana",  "Iowa",  "Kansas", "Michigan",  "Minnesota", "Nebraska", "North Dakota",  "Ohio", "South Dakota", "Wisconsin"];
-var northeast = ["Connecticut", "Maine",  "Massachusetts", "New Hampshire",  "New Jersey", "New York", "Pennsylvania", "Rhode Island", "Vermont"];
-var south = ["Alabama", "Arkansas", "Delaware", "Florida",  "Georgia", "Kentucky",  "Louisiana", "Maryland", "Mississippi",  "Missouri", "North Carolina", "Oklahoma", "South Carolina", "Tennessee",  "Texas", "Virginia"];
-var capital = ["Washington DC"];
-var inhabitedTerritories = ["Puerto Rico", "Guam", "Northern Marianas", "US Virgin Islands", "American Samoa"];
+    
+var regionsObj = {
+	pacific: ["ALASKA", "HAWAII"],
+	west: ["ARIZONA", "CALIFORNIA", "COLORADO", "IDAHO",  "MONTANA", "NEVADA", "NEW MEXICO", "OREGON", "UTAH", "WASHINGTON", "WEST VIRGINIA", "WYOMING"],
+	midwest: ["ILLINOIS",  "INDIANA",  "IOWA",  "KANSAS", "MICHIGAN",  "MINNESOTA", "NEBRASKA", "NORTH DAKOTA",  "OHIO", "SOUTH DAKOTA", "WISCONSIN"],
+	northeast: ["CONNECTICUT", "MAINE",  "MASSACHUSETTS", "NEW HAMPSHIRE",  "NEW JERSEY", "NEW YORK", "PENNSYLVANIA", "RHODE ISLAND", "VERMONT"],
+	south: ["ALABAMA", "ARKANSAS", "DELAWARE", "FLORIDA",  "GEORGIA", "KENTUCKY",  "LOUISIANA", "MARYLAND", "MISSISSIPPI",  "MISSOURI", "NORTH CAROLINA", "OKLAHOMA", "SOUTH CAROLINA", "TENNESSEE",  "TEXAS", "VIRGINIA"],
+	capital: ["WASHINGTON DC"],
+	inhabitedTerritories: ["PUERTO RICO", "GUAM", "NORTHERN MARIANAS", "US VIRGIN ISLANDS", "AMERICAN SAMOA"]
+}
 
 var currentWord = chooseWord();
 var currentWordArray = currentWord.split("");
@@ -24,8 +26,8 @@ var statusMessage = "Play a new game!";
 
 function chooseWord() {
 	var indexRand = Math.floor(Math.random() * 56);
-	// return states[indexRand].toUpperCase();
-	return states[54].toUpperCase(); // debug: left off here, testing guesses length
+	return states[indexRand].toUpperCase();
+	//return states[54].toUpperCase(); // debug: left off here, testing guesses length
 }
 function initialDisplayCurrentWord() {
 	for (i = 0; i < currentWordArray.length; i++) {
@@ -81,6 +83,18 @@ function updateDisplayCurrentWord(currentLetter) {
 	console.log("Current Word Display: " + currentWordDisplay);
 	isGameActive(updateHtml());	
 }
+function updateMapImage() {
+	var regionsObjKeys = Object.keys(regionsObj);
+	for (l = 0; l < regionsObjKeys.length; l++) {
+		var regionArray = regionsObj[regionsObjKeys[l]];
+
+		console.log(regionsObj[regionsObjKeys[l]]);
+		if (regionArray.indexOf(currentWord) > -1) {
+			document.getElementById("mapEl").src = "assets/images/" + regionsObjKeys[l].toString() + ".png";
+			console.log("meow");
+		}
+	}
+}
 function updateHtml() {
 	alreadyGuessedDisplay = alreadyGuessed.join(" ");
 	document.getElementById("statusMsgEl").innerHTML = statusMessage;
@@ -97,6 +111,7 @@ function isGameActive(htmlUpdated) {
 	if (htmlUpdated == true) {
 		if (correctlyGuessedLetters == currentWord) {
 			gameActive = false;
+			updateMapImage();
 			wins += 1;
 			statusMessage = "You win! Great job! Try another one!"
 			currentGuesses = defaultGuesses;
@@ -106,6 +121,7 @@ function isGameActive(htmlUpdated) {
 		} else {
 			if (currentGuesses == 0) {
 				gameActive = false;
+				updateMapImage();
 				statusMessage = "You lose :( But try another one."
 				currentGuesses = defaultGuesses;
 				alreadyGuessed = [];
