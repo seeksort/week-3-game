@@ -1,19 +1,14 @@
 /* Styles File */
 
-/*
-================
-MAIN STYLES
-================
-*/
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 body {
 	background-color: #ECF0F1;
 	color: #2C3E50;
 	  /* Margin bottom by footer height */
-  	margin-bottom: 150px;
+  	margin-bottom: 200px;
 	font-family: 'PT Sans', sans-serif;
 }
 h1, h2 {
@@ -23,14 +18,15 @@ h1, h2 {
 .main-title {
 	background-color: #E74C3C;
 }
+
 .footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  /* Set the fixed height of the footer here */
-  height: 150px;
-  background-color: #2980B9;
-  color: #ECF0F1;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	/* Set the fixed height of the footer here */
+	height: 200px;
+	background-color: #2980B9;
+	color: #ECF0F1;
 }
 #attr > a:link,
 #attr > a:visited {

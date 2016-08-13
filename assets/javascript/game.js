@@ -27,7 +27,6 @@ var statusMessage = "Play a new game!";
 function chooseWord() {
 	var indexRand = Math.floor(Math.random() * 56);
 	return states[indexRand].toUpperCase();
-	//return states[54].toUpperCase(); // debug: left off here, testing guesses length
 }
 function initialDisplayCurrentWord() {
 	for (i = 0; i < currentWordArray.length; i++) {
@@ -39,7 +38,6 @@ function initialDisplayCurrentWord() {
 			correctlyGuessedArray.push(" _ ");
 		}
 	}
-	console.log("Display Array: " + displayArray);
 	currentWordDisplay = displayArray.join("");
 	isGameActive(updateHtml());
 	return currentWordDisplay;
@@ -47,7 +45,6 @@ function initialDisplayCurrentWord() {
 function getCurrentLetter(event){
 	if (gameActive) {
 		currentLetter = event.key.toUpperCase();
-		console.log(currentLetter);
 		isLetterInDisplay(currentLetter);
 	}	
 }
@@ -64,8 +61,6 @@ function isLetterInCurrentWord(currentLetter) {
 		currentGuesses -= 1;
 		isGameActive(updateHtml());		
 	}	
-	console.log("Game Status: " + gameActive);
-	console.log("Current Guesses: " + currentGuesses);
 }
 function updateDisplayCurrentWord(currentLetter) {
 	var wasHtmlUpdated = false;
@@ -78,20 +73,14 @@ function updateDisplayCurrentWord(currentLetter) {
 	}
 	currentGuesses -= 1;
 	currentWordDisplay = displayArray.join("");
-	console.log(currentWord);
-	console.log(currentGuesses);
-	console.log("Current Word Display: " + currentWordDisplay);
 	isGameActive(updateHtml());	
 }
 function updateMapImage() {
 	var regionsObjKeys = Object.keys(regionsObj);
 	for (l = 0; l < regionsObjKeys.length; l++) {
 		var regionArray = regionsObj[regionsObjKeys[l]];
-
-		console.log(regionsObj[regionsObjKeys[l]]);
 		if (regionArray.indexOf(currentWord) > -1) {
 			document.getElementById("mapEl").src = "assets/images/" + regionsObjKeys[l].toString() + ".png";
-			console.log("meow");
 		}
 	}
 }
@@ -106,8 +95,6 @@ function updateHtml() {
 }
 function isGameActive(htmlUpdated) {
 	var correctlyGuessedLetters = correctlyGuessedArray.join("");
-	console.log("Correctly Guessed:")
-	console.log(correctlyGuessedLetters);
 	if (htmlUpdated == true) {
 		if (correctlyGuessedLetters == currentWord) {
 			gameActive = false;
@@ -140,7 +127,6 @@ function previousWordInfo() {
 	// newNode.innerHTML = currentWord;
 	document.getElementById("previousWordInfoEl").href = wikiUrl;
 	document.getElementById("previousWordInfoEl").innerHTML = currentWord;
-	console.log(wikiUrl);
 }
 function gameReset() {
 	currentWord = chooseWord();
@@ -152,43 +138,8 @@ function gameReset() {
 	alreadyGuessedDisplay = alreadyGuessed.join(" ");
 	gameActive = true;
 }
-
-console.log("Current Letter is: " + currentLetter);
-console.log(currentWordArray);
-console.log(initialDisplayCurrentWord());
+initialDisplayCurrentWord();
 document.onkeyup = function(event) {
 	getCurrentLetter(event);
 }
-
-
-/*
-// Debugging
-console.log(states.length);
-
-console.log(west);
-console.log(west.length);
-console.log(midwest);
-console.log(states.length);
-console.log(northeast);
-console.log(states.length);
-console.log(south);
-console.log(states.length);
-var total = pacific.concat(west,midwest,northeast,south,capital,inhabitedTerritories)
-console.log("total: " + total.length);
-console.log("win?");
-console.log(currentWordDisplay == currentWord);
-console.log(currentWordDisplay);
-console.log(currentWord);
-}
-
-console.log("Game Status: " + gameActive);
-
-console.log("Current Guesses: " + currentGuesses);
-console.log("New Display Array: ")
-console.log(displayArray);
-console.log("Current Word Display: " + currentWordDisplay)
-console.log("Current Word Array: ")
-console.log(currentWordArray)
-*/
-
 
