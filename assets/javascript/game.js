@@ -113,6 +113,8 @@ function isGameActive(htmlUpdated) {
 			gameActive = false;
 			updateMapImage();
 			wins += 1;
+			var audio = new Audio('assets/sousaClip.mp3');
+			audio.play();
 			statusMessage = "You win! Great job! Try another one!"
 			currentGuesses = defaultGuesses;
 			alreadyGuessed = [];

@@ -1,16 +1,18 @@
 <!DOCTYPE html>
-<html lang="3n">
+<html lang="en">
 <head>
 	<meta charset="utf-8">
 	<title>Hangman - the United States</title>
 	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
 	<!--Bootstrap CSS-->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=PT+Sans:700|Titillium+Web:700" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
 </head>
 <body>
 	<div class="container-fluid">
-		<div class="row">
+		<div class="row main-title">
 			<div class="col-lg-3"></div>
 			<div class="col-lg-3">
 				<h1 class="text-left">Hangman</h1>
@@ -38,23 +40,34 @@
 			<div class="col-lg-12 text-center"></div>
 		</div>
 		<!--Stats-->
-		<div class="container">
+		<footer class="footer">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-3"></div>
+					<div class="col-lg-3">
+						<h4 class="text-center">Letters Already Guessed</h4>
+						<h4 class="text-center" id="lettersGuessedDisplayEl">_ _ _ _ _ _ _ _ _ _ _ _</h4>
+					</div>
+					<div class="col-lg-3">
+						<div class="row">
+							<h4>Wins: <span id="winsEl">0</span></h4>
+						</div>
+						<div class="row">
+							<h4>Number of Guesses Remaining: <span id="guessesEl">20</span></h4>
+						</div>
+					</div>
+					<div class="col-lg-3"></div>
+				</div>			
+			</div>
 			<div class="row">
-				<div class="col-lg-8">
-					<h4 class="col-lg-8 text-center">Letters Already Guessed</h4>
-					<h4 class="col-lg-8 text-center" id="lettersGuessedDisplayEl">_ _ _ _ _ _ _ _ _ _ _ _</h4>
-				</div>
-				<div class="col-lg-4">
-					<div class="row">
-						<h4>Wins: <span id="winsEl">0</span></h4>
-					</div>
-					<div class="row">
-						<h4>Number of Guesses Remaining: <span id="guessesEl">20</span></h4>
-					</div>
-				</div>
-			</div>			
-		</div>
-	</div>
+				<div class="col-lg-8"></div>
+				<div class="col-lg-2 text-right" id="attr">Maps taken from<br><a href="http://www.freevectormaps.com/?ref=atr" >FreeVectorMaps.com</a></div>
+				<div class="col-lg-2"></div>
+			</div>	
+		</footer>
+			
+
+
 
 	<!--Bootstrap JS link-->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
