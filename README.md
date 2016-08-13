@@ -12,4 +12,4 @@ I used vanilla JS and Bootstrap and learned that Bootstrap is great if you're re
 When you have 56 hangman words, it's unreasonable to have 56 images (unless I hosted them elsewhere), so I went with US census regions and other logical groupings.
 
 
-[Heroku link](#)
+[Heroku link](http://peaceful-tundra-77527.herokuapp.com/)
